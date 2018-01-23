@@ -1,0 +1,34 @@
+{
+  "name": "惠购",
+  "version": "1.0",
+  "author": "yunuo",
+  "description": "京东淘宝优惠",
+  "manifest_version": 2,
+  "browser_action": {
+    "default_title": "惠购",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.jd.com/"],
+      "js": ["scripts/content.js"]
+    }
+  ],
+  "background": {
+    "scripts": [
+      "scripts/background.js"
+    ]
+  },
+  "permissions": [
+    "cookies",
+    "tabs",
+    "activeTab",
+    "storage",
+    "notifications",
+    "webRequest",
+    "webRequestBlocking",
+    "*://*.alimama.com/",
+    "*://*.jd.com/"
+  ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}
