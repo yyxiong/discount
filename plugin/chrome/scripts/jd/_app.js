@@ -1,10 +1,12 @@
 import React from 'react'
+import Reboot from 'material-ui/Reboot'
 
 export default class App extends React.Component {
   render () {
     return (
       <article>
-        <h1>Hi from DummyComponent.</h1>
+        <Reboot/>
+        <h1>Hi.</h1>
         <em>Now let's play with React!</em>
       </article>
     )

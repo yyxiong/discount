@@ -45,13 +45,20 @@ export default [{
           }
         ],
         'stage-0',
+        'stage-1',
         'react'
       ],
       plugins: [
         'external-helpers',
         'transform-decorators-legacy',
         'transform-object-rest-spread',
-        'transform-class-properties'
+        'transform-class-properties',
+        [
+          'import', {
+            libraryName: 'material-ui',
+            style: 'css'
+          }
+        ]
       ]
     }),
     commonjs(),
