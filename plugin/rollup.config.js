@@ -1,5 +1,8 @@
 import resolve from 'rollup-plugin-node-resolve'
 import commonjs from 'rollup-plugin-commonjs'
+import babel from 'rollup-plugin-babel'
+import globals from 'rollup-plugin-node-globals'
+
 // import copy from 'rollup-plugin-copy'
 import fs from 'fs-extra'
 
@@ -32,8 +35,28 @@ export default [{
     format: 'umd'
   },
   plugins: [
-    resolve({ preferBuiltins: true }),
+    babel({
+      babelrc: false,
+      exclude: 'node_modules/**',
+      presets: [
+        [
+          'es2015', {
+            modules: false
+          }
+        ],
+        'stage-0',
+        'react'
+      ],
+      plugins: [
+        'external-helpers',
+        'transform-decorators-legacy',
+        'transform-object-rest-spread',
+        'transform-class-properties'
+      ]
+    }),
     commonjs(),
+    globals(),
+    resolve({ preferBuiltins: true }),
   ]
 }, {
   input: srcEntry('scripts/background.js'),

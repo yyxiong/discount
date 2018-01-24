@@ -1,12 +1,21 @@
+import React from 'react'
 
-export default function () {
-  // 监听
-  // chrome.extension.onRequest.addListener((request, sender, sendResponse) => {
-  //   console.log('sender', sender.tab)
-  //   if (request.greeting == 'hello') {
-  //     sendResponse({farewell: 'goodbye'})
-  //   } else {
-  //     sendResponse({})
-  //   }
-  // })
+export default class App extends React.Component {
+  render () {
+    return (
+      <article>
+        <h1>Hi from DummyComponent.</h1>
+        <em>Now let's play with React!</em>
+      </article>
+    )
+  }
 }
+
+// import ReactDOM from 'react-dom'
+
+// export default function () {
+
+//   chrome.storage.local.get('coupons', (val) => {
+//     console.info('local', val)
+//   })
+// }

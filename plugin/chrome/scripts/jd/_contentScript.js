@@ -5,16 +5,6 @@ import {
   getCoupon
 } from './api'
 
-// getCouponListByCatalogId(0).then((coupons) => {
-//   console.info('coupons', coupons.length)
-//   const coupon = coupons.find((item) => item.ruleKey === 'c2ae55dca5e2211299ac3885e0f984e0f26d9731c5b4946f839ddd7f7fe6098c087f17adb779f3126bc8d8d19d5ab2cb')
-//   console.info(coupon)
-
-//   // return getCoupon(coupon.ruleKey)
-//   // {message: "领取成功！感谢您的参与，祝您购物愉快~", code: "999", success: true}
-// }).then(console.info)
-// .catch(console.error)
-
 /**
  * 添加定时任务
  * @param {Object} options
@@ -23,7 +13,17 @@ function addSchedule(options) {
 
 }
 
-function listener () {
+/**
+ * 删除定时任务
+ */
+function removeSchedule(options) {
+
+}
+
+/**
+ * 监听任务的增减
+ */
+function listen () {
   chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message === 'hello') {
       sendResponse('hello response')
@@ -35,7 +35,7 @@ function listener () {
 
 export default function () {
 
-  listener()
+  listen()
 
   getCouponListOfCatalogId(0).then((coupons) => {
     console.info('coupons', coupons)
@@ -45,6 +45,5 @@ export default function () {
     }, (response) => {
       console.log('response', response.farewell)
     })
-
   }).catch(console.error)
 }
