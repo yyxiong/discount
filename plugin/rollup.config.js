@@ -2,6 +2,7 @@ import resolve from 'rollup-plugin-node-resolve'
 import commonjs from 'rollup-plugin-commonjs'
 import babel from 'rollup-plugin-babel'
 import globals from 'rollup-plugin-node-globals'
+import postcss from 'rollup-plugin-postcss'
 
 // import copy from 'rollup-plugin-copy'
 import fs from 'fs-extra'
@@ -35,6 +36,9 @@ export default [{
     format: 'umd'
   },
   plugins: [
+    postcss({
+      plugins: []
+    }),
     babel({
       babelrc: false,
       exclude: 'node_modules/**',
@@ -55,13 +59,28 @@ export default [{
         'transform-class-properties',
         [
           'import', {
-            libraryName: 'material-ui',
+            libraryName: 'antd',
+            libraryDirectory: 'es',
             style: 'css'
           }
         ]
       ]
     }),
-    commonjs(),
+    commonjs({
+      namedExports: {
+        'node_modules/react/index.js': [
+          'Component',
+          'Children',
+          'cloneElement',
+          'createElement',
+          'isValidElement'
+        ],
+        'node_modules/react-dom/index.js': [
+          'createPortal',
+          'findDOMNode',
+        ]
+      }
+    }),
     globals(),
     resolve({ preferBuiltins: true }),
   ]

@@ -23,6 +23,7 @@
     "babel-preset-stage-1": "^6.24.1"
   },
   "devDependencies": {
+    "antd": "^3.1.4",
     "autoprefixer": "^7.2.5",
     "axios": "^0.17.1",
     "babel-core": "^6.26.0",
@@ -35,11 +36,12 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "bluebird": "^3.5.1",
+    "classnames": "^2.2.5",
     "jquery": "^3.3.1",
     "later": "^1.2.0",
+    "less": "^2.7.3",
     "lodash": "^4.17.4",
-    "material-ui": "^1.0.0-beta.30",
-    "material-ui-icons": "^1.0.0-beta.17",
+    "prop-types": "^15.6.0",
     "query-string": "^5.0.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
@@ -49,6 +51,6 @@
     "rollup-plugin-copy": "^0.2.3",
     "rollup-plugin-node-globals": "^1.1.0",
     "rollup-plugin-node-resolve": "^3.0.2",
-    "typeface-roboto": "0.0.50"
+    "rollup-plugin-postcss": "^1.2.7"
   }
 }
