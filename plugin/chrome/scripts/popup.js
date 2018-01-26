@@ -1,19 +1,21 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import { Layout } from 'antd'
-import Sidebar from './components/Sidebar'
-import Container from './components/Container'
+import { BrowserRouter as Router } from 'react-router-dom'
+import { Provider } from 'mobx-react'
 
+import { rehydrate } from 'rfx-core'
+import './stores/index.js'
+const store = rehydrate()
+
+import Index from './app'
 class App extends Component {
   render () {
     return (
-      <Layout style={{ minHeight: '100vh' }}>
-        <Sidebar/>
-
-        <Container>
-          <div>aaa</div>
-        </Container>
-      </Layout>
+      <Router>
+        <Provider store={store}>
+          <Index/>
+        </Provider>
+      </Router>
     )
   }
 }

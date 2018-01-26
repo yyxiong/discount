@@ -78,6 +78,7 @@ export default [{
         'node_modules/react-dom/index.js': [
           'createPortal',
           'findDOMNode',
+          'unstable_batchedUpdates',
         ]
       }
     }),

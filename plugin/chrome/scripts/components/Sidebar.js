@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+import { Link } from 'react-router-dom'
 import { Layout, Menu, Icon } from 'antd'
 const { Header, Content, Sider } = Layout
 const SubMenu = Menu.SubMenu
@@ -22,33 +23,27 @@ export default class App extends Component {
       onCollapse={this.onCollapse}
     >
       <div className="logo" />
-      <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-        <Menu.Item key="1">
-          <Icon type="pie-chart" />
-          <span>Option 1</span>
-        </Menu.Item>
-        <Menu.Item key="2">
-          <Icon type="desktop" />
-          <span>Option 2</span>
+      <Menu theme="dark" defaultSelectedKeys={['dash']} mode="inline">
+        <Menu.Item key="dash">
+          <Link to="/"><Icon type="pie-chart" />总览</Link>
         </Menu.Item>
         <SubMenu
-          key="sub1"
-          title={<span><Icon type="user" /><span>User</span></span>}
+          key="jd"
+          title={<span><Icon type="user" /><span>京东</span></span>}
         >
-          <Menu.Item key="3">Tom</Menu.Item>
-          <Menu.Item key="4">Bill</Menu.Item>
-          <Menu.Item key="5">Alex</Menu.Item>
+          <Menu.Item key="jd-task">
+            <Link to="/jd/task">任务</Link>
+          </Menu.Item>
         </SubMenu>
         <SubMenu
-          key="sub2"
-          title={<span><Icon type="team" /><span>Team</span></span>}
+          key="taobao"
+          title={<span><Icon type="team" /><span>淘宝</span></span>}
         >
-          <Menu.Item key="6">Team 1</Menu.Item>
-          <Menu.Item key="8">Team 2</Menu.Item>
+          <Menu.Item key="6">任务</Menu.Item>
         </SubMenu>
         <Menu.Item key="9">
           <Icon type="file" />
-          <span>File</span>
+          <span>对接</span>
         </Menu.Item>
       </Menu>
     </Sider>
