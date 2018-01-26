@@ -30,9 +30,9 @@ export default [{
     commonjs(),
   ]
 }, {
-  input: srcEntry('scripts/app.js'),
+  input: srcEntry('scripts/popup.js'),
   output: {
-    file: distEntry('scripts/app.js'),
+    file: distEntry('scripts/popup.js'),
     format: 'umd'
   },
   plugins: [
